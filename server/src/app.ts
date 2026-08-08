@@ -10,8 +10,12 @@ import customerRoutes from './modules/customers/customers.routes';
 import productRoutes from './modules/products/products.routes';
 import challanRoutes from './modules/challans/challans.routes';
 import dashboardRoutes from './modules/dashboard/dashboard.routes';
+import swaggerUi from 'swagger-ui-express';
+import { swaggerDocument } from './docs/swagger';
 
 const app = express();
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(helmet({
   crossOriginEmbedderPolicy: false,
