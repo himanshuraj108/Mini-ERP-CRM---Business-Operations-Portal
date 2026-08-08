@@ -128,6 +128,17 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-creds-title span {
+  font-size: 10px;
+  color: var(--primary-600);
+  text-transform: none;
+  font-weight: 500;
+  letter-spacing: normal;
 }
 
 .login-creds-grid {
@@ -138,12 +149,24 @@
 
 .login-creds-grid span {
   font-size: var(--font-size-xs);
-  color: var(--gray-600);
+  color: var(--gray-700);
   background-color: #ffffff;
-  padding: 4px 8px;
+  padding: 6px 8px;
   border-radius: var(--border-radius-sm);
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--gray-300);
   font-family: 'Courier New', monospace;
+  cursor: pointer;
+  transition: all 150ms ease;
+  user-select: none;
+  text-align: center;
+}
+
+.login-creds-grid span:hover {
+  background-color: var(--primary-50);
+  color: var(--primary-700);
+  border-color: var(--primary-400);
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.15);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 900px) {

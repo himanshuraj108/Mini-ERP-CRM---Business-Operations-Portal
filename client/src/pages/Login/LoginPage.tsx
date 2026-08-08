@@ -24,10 +24,17 @@ export default function LoginPage() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<LoginForm>({
     resolver: zodResolver(loginSchema),
   });
+
+  const handleQuickFill = (email: string) => {
+    setValue('email', email, { shouldValidate: true });
+    setValue('password', ['Admin', '123'].join('@'), { shouldValidate: true });
+    setApiError('');
+  };
 
   const onSubmit = async (data: LoginForm) => {
     setApiError('');
@@ -99,7 +106,7 @@ export default function LoginPage() {
             <div className="alert alert-danger" style={{ marginBottom: 20 }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="12" cy="12" r="10" />
-                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="8" x2="12" />
                 <line x1="12" y1="16" x2="12.01" y2="16" />
               </svg>
               {apiError}
@@ -144,12 +151,22 @@ export default function LoginPage() {
           </form>
 
           <div className="login-test-creds">
-            <div className="login-creds-title">Test credentials (password: {'Admin' + '@' + '123'})</div>
+            <div className="login-creds-title">
+              Test credentials <span>(Click any email to auto-fill)</span>
+            </div>
             <div className="login-creds-grid">
-              <span>admin@minicrm.com</span>
-              <span>sales@minicrm.com</span>
-              <span>warehouse@minicrm.com</span>
-              <span>accounts@minicrm.com</span>
+              <span onClick={() => handleQuickFill('admin@minicrm.com')} title="Click to fill Admin credentials">
+                admin@minicrm.com
+              </span>
+              <span onClick={() => handleQuickFill('sales@minicrm.com')} title="Click to fill Sales credentials">
+                sales@minicrm.com
+              </span>
+              <span onClick={() => handleQuickFill('warehouse@minicrm.com')} title="Click to fill Warehouse credentials">
+                warehouse@minicrm.com
+              </span>
+              <span onClick={() => handleQuickFill('accounts@minicrm.com')} title="Click to fill Accounts credentials">
+                accounts@minicrm.com
+              </span>
             </div>
           </div>
         </div>
