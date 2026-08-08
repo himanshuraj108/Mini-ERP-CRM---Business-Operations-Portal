@@ -1,5 +1,7 @@
 # Mini ERP CRM Portal
 
+**Live Demo:** [https://mini-erp-crm-business-operations-po.vercel.app](https://mini-erp-crm-business-operations-po.vercel.app)
+
 A production-ready, full-stack ERP and CRM system built with the PERN stack (PostgreSQL, Express.js, React, Node.js with TypeScript). Designed for wholesale and distribution businesses to manage customers, products, stock, and sales challans.
 
 ---
