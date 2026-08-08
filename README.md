@@ -81,7 +81,7 @@ REFRESH_TOKEN_EXPIRY=7d
 ALLOWED_ORIGINS=http://localhost:5173
 ```
 
-**Frontend:**
+**Frontend:*
 
 ```bash
 cp client/.env.example client/.env
