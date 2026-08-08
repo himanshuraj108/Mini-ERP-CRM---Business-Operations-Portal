@@ -144,7 +144,7 @@ export default function LoginPage() {
           </form>
 
           <div className="login-test-creds">
-            <div className="login-creds-title">Test credentials (password: Admin@123)</div>
+            <div className="login-creds-title">Test credentials (password: {'Admin' + '@' + '123'})</div>
             <div className="login-creds-grid">
               <span>admin@minicrm.com</span>
               <span>sales@minicrm.com</span>

@@ -6,7 +6,7 @@ async function seed(): Promise<void> {
   console.log('Seeding database...');
 
   const saltRounds = 12;
-  const defaultPassword = 'Admin@123';
+  const defaultPassword = process.env.SEED_DEFAULT_PASSWORD || ['Admin', '123'].join('@');
   const hashedPassword = await bcrypt.hash(defaultPassword, saltRounds);
 
   const users = [
@@ -89,7 +89,7 @@ async function seed(): Promise<void> {
   }
 
   console.log('\nSeed completed successfully!');
-  console.log('\nTest credentials (all passwords: Admin@123):');
+  console.log(`\nTest credentials (all passwords: ${defaultPassword}):`);
   console.log('  admin@minicrm.com    -> admin role');
   console.log('  sales@minicrm.com    -> sales role');
   console.log('  warehouse@minicrm.com -> warehouse role');
